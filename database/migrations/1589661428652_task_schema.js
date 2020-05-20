@@ -1,6 +1,5 @@
 "use strict";
 
-/** @type {import('@adonisjs/lucid/src/Schema')} */
 const Schema = use("Schema");
 
 class TaskSchema extends Schema {
@@ -11,7 +10,7 @@ class TaskSchema extends Schema {
         .integer("project_id")
         .unsigned()
         .references("id")
-        .inTable("users")
+        .inTable("projects")
         .onUpdate("CASCADE")
         .onDelete("CASCADE")
         .notNullable();
@@ -23,7 +22,7 @@ class TaskSchema extends Schema {
         .onUpdate("CASCADE")
         .onDelete("SET NULL");
       table
-        .integer("file")
+        .integer("file_id")
         .unsigned()
         .references("id")
         .inTable("files")
